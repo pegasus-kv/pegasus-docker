@@ -35,6 +35,7 @@ wget \
 unzip \
 which \
 openssl-devel \
+boost-devel \
 libaio-devel \
 snappy-devel \
 bzip2-devel \

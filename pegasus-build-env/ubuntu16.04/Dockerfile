@@ -23,6 +23,9 @@ RUN sed -i 's/archive.ubuntu.com/mirrors.aliyun.com/' /etc/apt/sources.list; \
     apt-get update -y; \
     apt-get -y install build-essential \
                        python3-pip \
+                       libboost-system-dev \
+                       libboost-filesystem-dev \
+                       libboost-regex-dev \
                        libaio-dev \
                        libsnappy-dev \
                        libbz2-dev \
