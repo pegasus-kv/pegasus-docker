@@ -26,6 +26,7 @@ RUN sed -i 's/archive.ubuntu.com/mirrors.aliyun.com/' /etc/apt/sources.list; \
                        libboost-system-dev \
                        libboost-filesystem-dev \
                        libboost-regex-dev \
+                       libgflags-dev \
                        libaio-dev \
                        libsnappy-dev \
                        libbz2-dev \

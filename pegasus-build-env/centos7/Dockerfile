@@ -36,6 +36,7 @@ unzip \
 which \
 openssl-devel \
 boost-devel \
+gflags-devel \
 libaio-devel \
 snappy-devel \
 bzip2-devel \
