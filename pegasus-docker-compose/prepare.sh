@@ -45,10 +45,8 @@ for i in $(seq "${META_COUNT}"); do
     command:
       - meta
     privileged: true
-    networks:
-      frontend:
-        ipv4_address: @META_IP_PREFIX@.1$((i))
-    restart: on-failure" >> "${DOCKER_DIR}"/docker-compose.yml
+    restart: on-failure
+    network_mode: host" >> "${DOCKER_DIR}"/docker-compose.yml
     meta_ip=$(hostname -I | cut -d' ' -f1)
     echo "META$((i))_ADDRESS=$meta_ip:$meta_port"
 done
@@ -64,11 +62,8 @@ for i in $(seq "${REPLICA_COUNT}"); do
     command:
       - replica
     privileged: true
-    restart: on-failure
-    networks:
-      frontend:" >> "${DOCKER_DIR}"/docker-compose.yml
+    restart: on-failure" >> "${DOCKER_DIR}"/docker-compose.yml
 done
-sed -i "s/@META_IP_PREFIX@/${META_IP_PREFIX}/g" "${DOCKER_DIR}"/docker-compose.yml
 sed -i "s/@IMAGE_NAME@/${IMAGE_NAME}/g" "${DOCKER_DIR}"/docker-compose.yml
 sed -i "s/@META_PORT@/${META_PORT}/g" "${DOCKER_DIR}"/docker-compose.yml
 

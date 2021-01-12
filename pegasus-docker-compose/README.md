@@ -41,10 +41,9 @@ To start a cluster:
 To start multiple clusters, you should reconfigure the `cluster_args.sh` by using a different set of:
 
 - `CLUSTER_NAME`
-- `META_IP_PREFIX`
 - `META_PORT`.
 
-For example `onebox2`, `173.21.0` and `35601`.
+For example `onebox2`, and `35601`.
 
 Use `docker ps` command to show all the running dockers. And if some docker failed unexpectedly,
 use `docker logs {DOCKER_ID}` to dump the error logs of it.

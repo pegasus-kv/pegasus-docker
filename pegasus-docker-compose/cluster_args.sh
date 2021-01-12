@@ -2,16 +2,11 @@
 
 # Configure the following variables to customize the docker cluster. #
 
-# The ip prefix for each meta.
-# Meta-x's ip address is 172.21.0.1{x}:34601.
-# For exmaple, Meta1's address is 172.21.0.11:34601.
-export META_IP_PREFIX=172.21.0
-
 # The exported port of pegasus meta-server.
 # Please ensure this port is not occupied by other programs.
 export META_PORT=34601
 
-# Different clusters are isolated by their cluster name and the META_IP_PREFIX.
+# Different clusters are isolated by their cluster name and the META_PORT.
 export CLUSTER_NAME=onebox
 
 export IMAGE_NAME='pegasus:latest'

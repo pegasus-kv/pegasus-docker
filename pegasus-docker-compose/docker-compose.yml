@@ -1,10 +1,5 @@
 version: "3.3"
 
-networks:
-  frontend:
-    ipam:
-      config:
-        - subnet: @META_IP_PREFIX@.255/24
 services:
   zookeeper:
     image: zookeeper:3.4
@@ -15,5 +10,3 @@ services:
     environment:
       ZOO_MY_ID: 1
       ZOO_SERVERS: server.1=zookeeper:2888:3888
-    networks:
-      frontend:
