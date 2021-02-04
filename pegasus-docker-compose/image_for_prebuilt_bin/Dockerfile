@@ -28,6 +28,6 @@ RUN cd / \
 COPY ./entrypoint.sh /
 RUN chmod +x /entrypoint.sh
 
-ENV LD_LIBRARY_PATH=/pegasus/bin:/root/rdsn/thirdparty/output/lib
+ENV LD_LIBRARY_PATH=/pegasus/bin
 
 ENTRYPOINT ["/entrypoint.sh"]
