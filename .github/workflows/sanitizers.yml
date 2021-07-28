@@ -27,12 +27,12 @@ jobs:
           - undefined
     container:
       image: ghcr.io/pegasus-kv/thirdparties-bin:ubuntu1804
+    defaults:
+      run:
+        # Replace `sh`.
+        # Should always use `bash` to run testing.
+        shell: bash
     steps:
-      -
-        name: Install dependencies
-        run: |
-          apt-get update -y
-          apt-get install -y nmap netcat
       -
         uses: actions/checkout@v2
         with:
@@ -51,4 +51,4 @@ jobs:
         run: |
           pwd
           echo $LD_LIBRARY_PATH
-          ./run.sh test --sanitizer ${{ matrix.sanitizer }} --skip_thirdparty
+          LD_LIBRARY_PATH=/root/rdsn/thirdparty/output/lib ./run.sh test --sanitizer ${{ matrix.sanitizer }} --skip_thirdparty
