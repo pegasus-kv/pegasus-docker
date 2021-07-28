@@ -1,9 +1,9 @@
 name: Build rdsn with sanitizers
 
 on:
-  push:
-    paths:
-      - '.github/workflows/sanitizers.yml'
+        #push:
+        #paths:
+        #- '.github/workflows/sanitizers.yml'
 
   pull_request:
     branches: [ master ]
@@ -12,8 +12,8 @@ on:
   workflow_dispatch:
 
   # run for every day 2am UTC+8(Beijing)
-  schedule:
-    - cron:  '0 18 */1 * *'
+  #schedule:
+  #  - cron:  '0 18 */1 * *'
 
 jobs:
   build_docker_images:
