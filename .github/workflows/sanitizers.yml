@@ -5,6 +5,9 @@ on:
     paths:
       - '.github/workflows/sanitizers.yml'
 
+  pull_request:
+    branches: [ master ]
+
   # for manually triggering workflow
   workflow_dispatch:
 
