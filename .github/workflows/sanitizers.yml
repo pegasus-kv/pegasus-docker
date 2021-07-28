@@ -49,4 +49,6 @@ jobs:
       -
         name: Testing
         run: |
+          pwd
+          echo $LD_LIBRARY_PATH
           ./run.sh test --sanitizer ${{ matrix.sanitizer }} --skip_thirdparty
