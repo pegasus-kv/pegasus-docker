@@ -15,8 +15,6 @@ on:
 jobs:
   build_docker_images:
     runs-on: ubuntu-latest
-    env:
-      LD_LIBRARY_PATH: /root/rdsn/thirdparty/output/lib
     strategy:
       fail-fast: false
       matrix:
@@ -39,14 +37,8 @@ jobs:
           repository: 'XiaoMi/rdsn'
       -
         name: Unpack prebuilt third-parties
-        run: unzip /root/thirdparties-bin.zip -d ./thirdparty
-      -
-        name: Compilation
-        run: |
-          cmake -DSANITIZER=${{ matrix.sanitizer }} -B builder/ .
-          cmake --build builder/ -j $(($(nproc)/2+1))
-          cmake --install builder/ --prefix builder/output
+        run: unzip /root/thirdparties-bin.zip -d `pwd`/thirdparty
       -
         name: Testing
         run: |
-          LD_LIBRARY_PATH=/root/rdsn/thirdparty/output/lib ./run.sh test --sanitizer ${{ matrix.sanitizer }} --skip_thirdparty
+          LD_LIBRARY_PATH=`pwd`/thirdparty/output/lib ./run.sh test --sanitizer ${{ matrix.sanitizer }} --skip_thirdparty --disable_gperf
