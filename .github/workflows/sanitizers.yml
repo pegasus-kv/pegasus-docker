@@ -43,4 +43,4 @@ jobs:
       -
         name: Testing
         run: |
-          LD_LIBRARY_PATH=`pwd`/thirdparty/output/lib ./run.sh test --sanitizer ${{ matrix.sanitizer }} --skip_thirdparty --disable_gperf
+         LD_LIBRARY_PATH=`pwd`/thirdparty/output/lib:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/server/ ./run.sh test --sanitizer ${{ matrix.sanitizer }} --skip_thirdparty --disable_gperf
