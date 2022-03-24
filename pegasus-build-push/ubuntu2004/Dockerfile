@@ -61,7 +61,7 @@ RUN add-apt-repository ppa:git-core/ppa -y; \
 
 RUN pip3 install --no-cache-dir cmake
 
-RUN git clone --recursive --branch $RELEASE_VERSION -depth=1 https://github.com/apache/incubator-pegasus.git  \
+RUN git clone --recursive --branch $RELEASE_VERSION --depth=1 https://github.com/apache/incubator-pegasus.git  \
     && cd incubator-pegasus \
     && ./run.sh build -c -j $(($(nproc)/2+1))
 
