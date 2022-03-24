@@ -1,4 +1,4 @@
-name:  Thirdparty-Build and publish regularly
+name:  ThirdpartyDockerRegularly-build and publish every week
 
 on:
   push:

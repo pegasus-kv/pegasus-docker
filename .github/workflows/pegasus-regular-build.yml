@@ -1,4 +1,4 @@
-name: Build Pegasus on multi os regularly
+name: EnvDockerRegularly-build pegasus on different os every day
 
 on:
   push:
