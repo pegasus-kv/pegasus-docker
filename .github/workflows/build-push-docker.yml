@@ -15,12 +15,14 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
+        releasetag:
+          - v2.3.0
         dockertag:
-          - v2.3.0_ubuntu1604
-          - v2.3.0_ubuntu1804
-          - v2.3.0_ubuntu2004
+          - ubuntu1604
+          - ubuntu1804
+          - ubuntu2004
           #- centos6 is EOL
-          - v2.3.0_centos7
+          - centos7
     steps:
       -
         name: Checkout
@@ -45,7 +47,7 @@ jobs:
           file: ./pegasus-build-push/${{ matrix.dockertag }}/Dockerfile
           push: true
           tags: |
-            apachepegasus/release:${{ matrix.dockertag }}
+            apachepegasus/release:${{ matrix.releasetag }}_${{ matrix.dockertag }}
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
