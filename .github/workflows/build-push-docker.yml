@@ -14,15 +14,14 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
-      env:
-        RELEASE_VERSION: v2.3.0
       matrix:
+        release: v2.3.0
         dockertag:
-          - ${{ RELEASE_VERSION }}_ubuntu1604
-          - ${{ RELEASE_VERSION }}_ubuntu1804
-          - ${{ RELEASE_VERSION }}_ubuntu2004
+          - ${{ matrix.release }}_ubuntu1604
+          - ${{ matrix.release }}_ubuntu1804
+          - ${{ matrix.release }}_ubuntu2004
           #- centos6 is EOL
-          - ${{ RELEASE_VERSION }}_centos7
+          - ${{ matrix.release }}_centos7
     steps:
       -
         name: Checkout
