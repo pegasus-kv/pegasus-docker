@@ -1,4 +1,4 @@
-name: Build Pegasus regularly
+name: Build Pegasus on multi os regularly
 
 on:
   push:

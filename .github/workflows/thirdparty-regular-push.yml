@@ -1,4 +1,4 @@
-name: Build and upload third-party source/bin package to GHCR
+name: Build and push third-party  package regularly
 
 on:
   push:
