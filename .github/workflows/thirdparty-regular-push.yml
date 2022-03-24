@@ -55,8 +55,9 @@ jobs:
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
         
- build_push_bin_docker_images:
-   runs-on: ubuntu-latest
+  build_push_bin_docker_images:
+    runs-on: ubuntu-latest
+      runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
@@ -111,6 +112,4 @@ jobs:
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
-
-
-
+        
