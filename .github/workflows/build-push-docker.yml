@@ -14,13 +14,15 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
+      env:
+        RELEASE_VERSION: v2.3.0
       matrix:
         dockertag:
-          - ubuntu1604
-          - ubuntu1804
-          - ubuntu2004
+          - ${{ RELEASE_VERSION }}_ubuntu1604
+          - ${{ RELEASE_VERSION }}_ubuntu1804
+          - ${{ RELEASE_VERSION }}_ubuntu2004
           #- centos6 is EOL
-          - centos7
+          - ${{ RELEASE_VERSION }}_centos7
     steps:
       -
         name: Checkout
@@ -47,15 +49,13 @@ jobs:
       -
         name: Build and push
         uses: docker/build-push-action@v2
-        env:
-          RELEASE_VERSION: v2.3.0
         with:
           context: .
           file: ./pegasus-build-push/${{ matrix.dockertag }}/Dockerfile
           push: true
           tags: |
-            apachepegasus/build-env:${{ RELEASE_VERSION }}_${{ matrix.dockertag }}
-            ghcr.io/pegasus-kv/build-env:${{ RELEASE_VERSION }}_${{ matrix.dockertag }}
+            apachepegasus/build-env:${{ matrix.dockertag }}
+            ghcr.io/pegasus-kv/build-env:${{ matrix.dockertag }}
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
