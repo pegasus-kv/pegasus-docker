@@ -5,8 +5,6 @@ on:
     paths:
       - 'pegasus-build-push/**'
       - '.github/workflows/build-env.yml'
-  pull_request:
-    types: [ synchronize, opened, reopened ]
 
   # for manually triggering workflow
   workflow_dispatch:
