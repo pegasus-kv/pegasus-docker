@@ -15,7 +15,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        release: v2.3.0
+        release: 
+          - v2.3.0
         dockertag:
           - ${{ matrix.release }}_ubuntu1604
           - ${{ matrix.release }}_ubuntu1804
