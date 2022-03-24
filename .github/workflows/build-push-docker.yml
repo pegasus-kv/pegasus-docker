@@ -18,11 +18,11 @@ jobs:
         release: 
           - v2.3.0
         dockertag:
-          - ${{ matrix.release }}_ubuntu1604
-          - ${{ matrix.release }}_ubuntu1804
-          - ${{ matrix.release }}_ubuntu2004
+          - v2.3.0_ubuntu1604
+          - v2.3.0_ubuntu1804
+          - v2.3.0_ubuntu2004
           #- centos6 is EOL
-          - ${{ matrix.release }}_centos7
+          - v2.3.0_centos7
     steps:
       -
         name: Checkout
