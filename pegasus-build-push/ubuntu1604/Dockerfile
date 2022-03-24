@@ -22,6 +22,8 @@ LABEL maintainer=wutao
 ENV TZ=Asia/Shanghai
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
+ARG RELEASE_VERSION=v2.3.0
+
 RUN apt-get update -y; \
     apt-get -y install build-essential \
                        software-properties-common \
