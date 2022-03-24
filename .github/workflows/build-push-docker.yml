@@ -1,4 +1,4 @@
-name: Build and publish pegasus-build-env Docker images
+name: Build and publish pegasus Docker images
 
 on:
   push:
@@ -54,8 +54,8 @@ jobs:
           file: ./pegasus-build-push/${{ matrix.dockertag }}/Dockerfile
           push: true
           tags: |
-            apachepegasus/build-env:${{RELEASE_VERSION}}_${{ matrix.dockertag }}
-            ghcr.io/pegasus-kv/build-env:${{RELEASE_VERSION}}_${{ matrix.dockertag }}
+            apachepegasus/build-env:${{ RELEASE_VERSION }}_${{ matrix.dockertag }}
+            ghcr.io/pegasus-kv/build-env:${{ RELEASE_VERSION }}_${{ matrix.dockertag }}
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
