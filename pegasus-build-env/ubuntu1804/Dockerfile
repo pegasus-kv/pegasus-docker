@@ -48,7 +48,7 @@ RUN apt-get update -y; \
                        libtool \
                        libssl-dev \
                        bison \
-		       maven \
+                       maven \
                        flex; \
     rm -rf /var/lib/apt/lists/*
 
@@ -57,6 +57,15 @@ RUN add-apt-repository ppa:git-core/ppa -y; \
     apt-get install git -y; \
     rm -rf /var/lib/apt/lists/*
 
-RUN pip3 install --no-cache-dir cmake
+RUN pip3 install --no-cache-dir cmake cmake==3.16.6
+
+RUN wget http://dev-www.libreoffice.org/src/cppunit-1.13.2.tar.gz -P /opt/cppunit \
+    && cd /opt/cppunit \
+    && tar -zxf cppunit-1.13.2.tar.gz \
+    && cd /opt/cppunit/cppunit-1.13.2 \
+    && ./configure \
+    && make \
+    && make install \
+    && cp cppunit.m4 /usr/share/aclocal
 
 WORKDIR /root/pegasus

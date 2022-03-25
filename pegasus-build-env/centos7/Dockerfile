@@ -51,12 +51,18 @@ lz4-devel \
 bison \
 maven \
 flex \
+cppunit-devel \
+netcat \
 patch; \
 yum clean all; \
 rm -rf /var/cache/yum;
 
 RUN pip3 install --no-cache-dir cmake
 
-ENV PATH="/opt/rh/devtoolset-7/root/bin/:${PATH}"
+RUN wget http://relay2.sensorsdata.cn/dl/sp/skv/deps/apache-maven-3.8.3-bin.tar.gz -P /opt/maven \
+    && cd /opt/maven \
+    && tar -zxf apache-maven-3.8.3-bin.tar.gz
+
+ENV PATH="/opt/maven/apache-maven-3.8.3/bin:/opt/rh/devtoolset-7/root/bin/:${PATH}"
 
 WORKDIR /root/pegasus
