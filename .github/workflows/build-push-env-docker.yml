@@ -1,4 +1,4 @@
-name: BuildEnvDocker-build and publish multi compilation os env
+name: BuildCompilationEnvDocker-build and publish multi compilation os env
 
 on:
   push:
