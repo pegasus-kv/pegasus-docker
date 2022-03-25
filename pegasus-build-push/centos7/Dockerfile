@@ -59,10 +59,10 @@ rm -rf /var/cache/yum;
 
 RUN pip3 install --no-cache-dir cmake
 
+ENV PATH="/opt/rh/devtoolset-7/root/bin/:${PATH}"
+
 RUN git clone --recursive --branch $RELEASE_VERSION --depth=1 https://github.com/apache/incubator-pegasus.git  \
     && cd incubator-pegasus \
     && ./run.sh build -c -j $(($(nproc)/2+1))
-
-ENV PATH="/opt/rh/devtoolset-7/root/bin/:${PATH}"
 
 WORKDIR /root/pegasus
