@@ -1,10 +1,10 @@
-name: PegasusDockerOnce-build and publish it when release
+name: BuildEnvDocker-build and publish multi compilation os env
 
 on:
   push:
     paths:
-      - 'pegasus-build-push/**'
-      - '.github/workflows/build-push-docker.yml'
+      - 'pegasus-build-env/**'
+      - '.github/workflows/build-push-env-docker.yml'
 
   # for manually triggering workflow
   workflow_dispatch:
@@ -14,9 +14,6 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
-      matrix:
-        releasetag:
-          - v2.3.0
         dockertag:
           - ubuntu1604
           - ubuntu1804
@@ -44,10 +41,10 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: .
-          file: ./pegasus-build-push/${{ matrix.dockertag }}/Dockerfile
+          file: ./pegasus-build-env/${{ matrix.dockertag }}/Dockerfile
           push: true
           tags: |
-            apachepegasus/release:${{ matrix.releasetag }}_${{ matrix.dockertag }}
+            apachepegasus/build-env:${{ matrix.dockertag }}
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}

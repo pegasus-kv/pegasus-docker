@@ -15,18 +15,17 @@
 # specific language governing permissions and limitations
 # under the License.
 
-FROM ubuntu:16.04
+FROM ubuntu:20.04
 
 LABEL maintainer=wutao
 
 ENV TZ=Asia/Shanghai
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
-ARG RELEASE_VERSION=v2.3.0
-
 RUN apt-get update -y; \
     apt-get -y install build-essential \
                        software-properties-common \
+                       clang-10 \
                        openjdk-8-jdk \
                        python3-pip \
                        libaio-dev \
@@ -60,8 +59,4 @@ RUN add-apt-repository ppa:git-core/ppa -y; \
 
 RUN pip3 install --no-cache-dir cmake
 
-RUN git clone --recursive --branch $RELEASE_VERSION --depth=1 https://github.com/apache/incubator-pegasus.git  \
-    && cd incubator-pegasus \
-    && ./run.sh build -c -j $(($(nproc)/2+1))
-
-WORKDIR /root/pegasus
+WORKDIR /root/incubator-pegasus

@@ -19,8 +19,6 @@ FROM centos:7.5.1804
 
 LABEL maintainer=wutao
 
-ARG RELEASE_VERSION=v2.3.0
-
 RUN yum -y install centos-release-scl \
 scl-utils \
 epel-release; \
@@ -61,8 +59,4 @@ RUN pip3 install --no-cache-dir cmake
 
 ENV PATH="/opt/rh/devtoolset-7/root/bin/:${PATH}"
 
-RUN git clone --recursive --branch $RELEASE_VERSION --depth=1 https://github.com/apache/incubator-pegasus.git  \
-    && cd incubator-pegasus \
-    && ./run.sh build -c -j $(($(nproc)/2+1))
-
-WORKDIR /root/pegasus
+WORKDIR /root/incubator-pegasus
