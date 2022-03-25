@@ -40,10 +40,9 @@ jobs:
           file: ./thirdparties-src/Dockerfile
           push: true
           tags: |
-            ghcr.io/pegasus-kv/thirdparties-src
             apachepegasus/thirdparties-src
           build-args: |
-            REGISTRY_REPO=ghcr.io/pegasus-kv
+            REGISTRY_REPO=apachepegasus
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
