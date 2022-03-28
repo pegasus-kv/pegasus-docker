@@ -49,6 +49,8 @@ jobs:
         name: Compilation rdsn on GCC 
         if: ${{ matrix.compiler-family == 'gcc' }}
         run: |
+          pwd
+          ll
           cd incubator-pegasus/rdsn
           ./run.sh build -c --skip_thirdparty
       -
