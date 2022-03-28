@@ -59,4 +59,4 @@ RUN add-apt-repository ppa:git-core/ppa -y; \
 
 RUN pip3 install --no-cache-dir cmake
 
-WORKDIR /root/incubator-pegasus
+WORKDIR /root/apache
