@@ -54,7 +54,9 @@ jobs:
       -
         name: Compilation pegasus on GCC 
         if: ${{ matrix.compiler-family == 'gcc' }}
-        run: ./run.sh build -c --skip_thirdparty
+        run: |
+          cat run.sh
+          ./run.sh build -c --skip_thirdparty
       -
         name: Compilation rdsn on Clang
         if: ${{ matrix.compiler-family == 'clang' }}
