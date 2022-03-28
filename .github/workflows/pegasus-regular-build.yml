@@ -51,7 +51,7 @@ jobs:
         run: |
           cd incubator-pegasus/rdsn
           ./run.sh build -c --skip_thirdparty
-       -
+      -
         name: Compilation pegasus on GCC 
         if: ${{ matrix.compiler-family == 'gcc' }}
         run: |
@@ -65,7 +65,7 @@ jobs:
         run: |
           cd ./rdsn
           ./run.sh build --compiler $COMPILER --skip_thirdparty
-       -
+      -
         name: Compilation pegasus on Clang
         if: ${{ matrix.compiler-family == 'clang' }}
         env:
