@@ -36,3 +36,5 @@ RUN git clone --depth=1 https://github.com/XiaoMi/rdsn.git \
     && zip -r ~/thirdparties-bin.zip output/ build/Source/rocksdb/cmake build/Source/http-parser build/Source/hadoop build/Download/zookeeper \
     && cd ~ \
     && rm -rf rdsn;
+
+RUN date
