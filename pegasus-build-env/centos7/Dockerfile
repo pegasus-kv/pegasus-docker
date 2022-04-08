@@ -60,7 +60,8 @@ RUN pip3 install --no-cache-dir cmake
 
 RUN wget https://archive.apache.org/dist/maven/maven-3/3.8.3/binaries/apache-maven-3.8.3-bin.tar.gz -P /opt/maven \
     && cd /opt/maven \
-    && tar -zxf apache-maven-3.8.3-bin.tar.gz
+    && tar -zxf apache-maven-3.8.3-bin.tar.gz \
+    && rm apache-maven-3.8.3-bin.tar.gz
 
 ENV JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.322.b06-1.el7_9.x86_64
 ENV PATH="/opt/rh/devtoolset-7/root/bin/:${PATH}"
