@@ -63,6 +63,7 @@ RUN wget https://archive.apache.org/dist/maven/maven-3/3.8.3/binaries/apache-mav
     && tar -zxf apache-maven-3.8.3-bin.tar.gz
 
 ENV JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.322.b06-1.el7_9.x86_64
-ENV PATH="/opt/maven/apache-maven-3.8.3/bin:/opt/rh/devtoolset-7/root/bin/:${PATH}"
+ENV PATH="/opt/rh/devtoolset-7/root/bin/:${PATH}"
+ENV PATH="/opt/maven/apache-maven-3.8.3/bin:${PATH}"
 
 WORKDIR /root/apache
