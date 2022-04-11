@@ -10,5 +10,5 @@ jobs:
       - uses: actions/checkout@v2
       - uses: hadolint/hadolint-action@v2.0.0
         with:
-          dockerfiles: "*/Dockerfile"
+          dockerfiles: "bcc-centos7/Dockerfile:ci-env/Dockerfile:clang-format-3.9/Dockerfile:pegasus-build-env/centos7/Dockerfile:pegasus-build-env/ubuntu1604/Dockerfile:pegasus-build-env/ubuntu1804/Dockerfile:pegasus-build-env/ubuntu2004/Dockerfile:pegasus-docker-compose/image_for_prebuilt_bin/Dockerfile:thirdparties-bin/Dockerfile:thirdparties-src/Dockerfile"
 
